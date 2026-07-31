@@ -1,0 +1,34 @@
+{
+  "name": "@iveri/tsconfig",
+  "version": "0.0.1",
+  "description": "Shared TypeScript compiler configurations for Iveri repos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iverihq/iveri-tsconfig.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "files": [
+    "base.json",
+    "nest.json",
+    "react.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo \"@iveri/tsconfig ships JSON only — nothing to build\"",
+    "test": "node ./scripts/verify-configs.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "prettier": "@iveri/prettier-config",
+  "devDependencies": {
+    "@iveri/prettier-config": "^0.0.1",
+    "prettier": "^3.4.2"
+  }
+}
