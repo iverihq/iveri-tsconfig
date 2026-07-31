@@ -7,8 +7,6 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false,
-    "outDir": "./dist",
-    "baseUrl": "./"
+    "strictPropertyInitialization": false
   }
 }

@@ -30,6 +30,45 @@ assert.equal(react.compilerOptions.jsx, 'react-jsx');
 assert.equal(react.compilerOptions.noEmit, true, 'Vite owns the emit, tsc only type-checks');
 assert.equal(react.compilerOptions.declaration, false, 'declaration + noEmit is a tsc error');
 
+/**
+ * TypeScript resolves every path-valued setting against the config file that *declares* it,
+ * not the one that extends it. A shared config that sets `outDir` therefore points at
+ * `node_modules/@iveri/tsconfig/dist` in every consumer — `nest build` emits the whole
+ * service in there and the repo is left with no `dist`. These settings belong to the
+ * consuming repo, always.
+ */
+const PATH_RELATIVE_OPTIONS = [
+    'outDir',
+    'rootDir',
+    'rootDirs',
+    'baseUrl',
+    'paths',
+    'declarationDir',
+    'outFile',
+    'tsBuildInfoFile',
+    'typeRoots',
+];
+const PATH_RELATIVE_ROOT_KEYS = ['include', 'exclude', 'files'];
+
+for (const [name, config] of [
+    ['base.json', base],
+    ['nest.json', nest],
+    ['react.json', react],
+]) {
+    for (const option of PATH_RELATIVE_OPTIONS) {
+        assert.ok(
+            !(option in (config.compilerOptions ?? {})),
+            `${name} sets compilerOptions.${option}, which resolves inside node_modules/@iveri/tsconfig in every consumer`,
+        );
+    }
+    for (const key of PATH_RELATIVE_ROOT_KEYS) {
+        assert.ok(
+            !(key in config),
+            `${name} sets "${key}", which resolves inside node_modules/@iveri/tsconfig in every consumer`,
+        );
+    }
+}
+
 const { files } = JSON.parse(readFileSync(resolve(PACKAGE_ROOT, 'package.json'), 'utf8'));
 for (const variant of ['base.json', 'nest.json', 'react.json']) {
     assert.ok(files.includes(variant), `${variant} is missing from the files allowlist and would not be published`);

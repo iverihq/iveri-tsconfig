@@ -34,6 +34,8 @@ pnpm add -D @iveri/tsconfig typescript
 both read that metadata at runtime) and turns **off** `strictPropertyInitialization`, because
 entities and DTOs declare `id: string;` with no initializer by design.
 
+`outDir`, `baseUrl` and `include` are **your** repo's, not this package's — see below.
+
 ### React + Vite app
 
 ```json
@@ -44,6 +46,19 @@ entities and DTOs declare `id: string;` with no initializer by design.
 ```
 
 `react.json` sets `noEmit` — Vite owns the emit, `tsc` only type-checks.
+
+## No path-valued settings are shipped
+
+None of the three variants set `outDir`, `rootDir`, `baseUrl`, `paths`, `include`, `exclude`
+or `files`, and a test asserts they never will.
+
+TypeScript resolves every path-valued setting against the config file that **declares** it,
+not the one that extends it. A shared `"outDir": "./dist"` therefore means
+`node_modules/@iveri/tsconfig/dist` in every consuming repo — `nest build` emits your entire
+service in there and leaves the repo with no `dist` at all, silently and with a zero exit
+code. `@iveri/tsconfig` 0.1.0 shipped that bug; 0.1.1 fixes it.
+
+Declare those settings in your own `tsconfig.json`, as the examples above do.
 
 ## Notes on what is deliberately **not** enabled
 
