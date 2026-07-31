@@ -1,0 +1,37 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@iveri/prettier-config':
+        specifier: ^0.0.1
+        version: 0.0.1(prettier@3.9.6)
+      prettier:
+        specifier: ^3.4.2
+        version: 3.9.6
+
+packages:
+
+  '@iveri/prettier-config@0.0.1':
+    resolution: {integrity: sha512-a4TkuVCQyOvpSQQny/xYDKZx7dvbBV6UUp6jQepZrQKYkj1107Td/0zIdD8rXgI/glrLwtJQavZnCFC+xemC3g==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      prettier: '>=3'
+
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+snapshots:
+
+  '@iveri/prettier-config@0.0.1(prettier@3.9.6)':
+    dependencies:
+      prettier: 3.9.6
+
+  prettier@3.9.6: {}
