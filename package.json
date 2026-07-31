@@ -1,6 +1,6 @@
 {
   "name": "@iveri/tsconfig",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Shared TypeScript compiler configurations for Iveri repos",
   "license": "MIT",
   "repository": {
@@ -28,7 +28,7 @@
   },
   "prettier": "@iveri/prettier-config",
   "devDependencies": {
-    "@iveri/prettier-config": "^0.0.1",
+    "@iveri/prettier-config": "^0.1.0",
     "prettier": "^3.4.2"
   }
 }

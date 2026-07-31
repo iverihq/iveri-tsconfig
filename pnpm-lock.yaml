@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@iveri/prettier-config':
-        specifier: ^0.0.1
-        version: 0.0.1(prettier@3.9.6)
+        specifier: ^0.1.0
+        version: 0.1.0(prettier@3.9.6)
       prettier:
         specifier: ^3.4.2
         version: 3.9.6
 
 packages:
 
-  '@iveri/prettier-config@0.0.1':
-    resolution: {integrity: sha512-a4TkuVCQyOvpSQQny/xYDKZx7dvbBV6UUp6jQepZrQKYkj1107Td/0zIdD8rXgI/glrLwtJQavZnCFC+xemC3g==}
+  '@iveri/prettier-config@0.1.0':
+    resolution: {integrity: sha512-37Gtc17GfmM3TB+8stJJhGBgKYya+3AKYBkxxnerF9ztuKkqXX34cYGaQJDvxZ38qXnVcIt9qVKK6o/WqfYIuw==}
     engines: {node: '>=22'}
     peerDependencies:
       prettier: '>=3'
@@ -30,7 +30,7 @@ packages:
 
 snapshots:
 
-  '@iveri/prettier-config@0.0.1(prettier@3.9.6)':
+  '@iveri/prettier-config@0.1.0(prettier@3.9.6)':
     dependencies:
       prettier: 3.9.6
 
