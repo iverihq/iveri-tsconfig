@@ -1,6 +1,6 @@
 {
   "name": "@iveri/tsconfig",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared TypeScript compiler configurations for Iveri repos",
   "license": "MIT",
   "repository": {
