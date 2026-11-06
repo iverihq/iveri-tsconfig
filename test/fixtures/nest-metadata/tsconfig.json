@@ -1,0 +1,5 @@
+{
+  "extends": "../../../nest.json",
+  "compilerOptions": { "declaration": false, "declarationMap": false, "sourceMap": false, "incremental": false },
+  "include": ["*.ts"]
+}
